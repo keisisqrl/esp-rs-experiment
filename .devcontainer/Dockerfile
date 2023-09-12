@@ -1,4 +1,5 @@
-FROM "mcr.microsoft.com/devcontainers/rust:latest"
-RUN "curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash"
-RUN cargo binstall espup
+FROM "mcr.microsoft.com/devcontainers/rust"
+RUN cargo install cargo-quickinstall
+RUN cargo quickinstall cargo-binstall
+RUN cargo binstall -y espup
 RUN espup install
